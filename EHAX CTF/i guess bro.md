@@ -1,26 +1,26 @@
 # i guess bro
 
-![image-20260302162338135](C:\Users\段伟杰\AppData\Roaming\Typora\typora-user-images\image-20260302162338135.png)
+![image-20260302162338135](assets/image-20260302162338135.png)
 
 启动后发现这是一个flag校验程序。
 
-![image-20260302171641337](C:\Users\段伟杰\AppData\Roaming\Typora\typora-user-images\image-20260302171641337.png)
+![image-20260302171641337](assets/image-20260302171641337.png)
 
 
 
-![image-20260302173436529](C:\Users\段伟杰\AppData\Roaming\Typora\typora-user-images\image-20260302173436529.png)
+![image-20260302173436529](assets/image-20260302173436529.png)
 
 
 
 分析主程序，FUN_ram_00014f24应该是fgets，那auStack_90就是输入缓存区，接下来删除换行符，校验flag长度是否为0x23，经过FUN_ram_00010732处理之后检查是否正确，那么FUN_ram_00010732应该就是需要进一步分析的函数。
 
-![image-20260302173518977](C:\Users\段伟杰\AppData\Roaming\Typora\typora-user-images\image-20260302173518977.png)
+![image-20260302173518977](assets/image-20260302173518977.png)
 
-![image-20260302174427790](C:\Users\段伟杰\AppData\Roaming\Typora\typora-user-images\image-20260302174427790.png)
+![image-20260302174427790](assets/image-20260302174427790.png)
 
 20-26行通过时间检测是否是反调试，然后FUN_ram_000105cc，FUN_ram_00010622，FUN_ram_00010700三个函数都用到了输入，首先查看FUN_ram_000105cc这个函数。
 
-![image-20260302174459650](C:\Users\段伟杰\AppData\Roaming\Typora\typora-user-images\image-20260302174459650.png)
+![image-20260302174459650](assets/image-20260302174459650.png)
 
 根据加密函数反推出解密脚本
 
@@ -49,5 +49,5 @@ print("破解出的明文是:", flag)
 
 最后flag为EH4X{y0u_gu3ss3d_th4t_r1sc_cr4ckm3}
 
-![image-20260302180536583](C:\Users\段伟杰\AppData\Roaming\Typora\typora-user-images\image-20260302180536583.png)
+![image-20260302180536583](assets/image-20260302180536583.png)
 
